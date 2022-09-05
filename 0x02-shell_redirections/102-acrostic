@@ -1,1 +1,2 @@
-https://github.com/ruffinh22/alx-system_engineering-devops/blob/master/0x02-shell_redirections/102-acrostic#:~:text=%23!/bin/bash,)%27%5Cn%27
+#!/bin/bash
+echo -ne $(cut -c1 | tr -d '\n')'\n'

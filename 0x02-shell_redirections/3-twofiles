@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cat /etc/hosts |  /etc/hosts
+cat /etc/hosts  /etc/hosts
 

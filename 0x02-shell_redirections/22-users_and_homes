@@ -1,2 +1,2 @@
 #!/bin/bash
-getent passwd | cut -d: -f6
+awk -F":" '{print $6}' /etc/passwd | sort

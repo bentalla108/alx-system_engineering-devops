@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Script that print  all running process
 
-ps -aux
+ps -auxf

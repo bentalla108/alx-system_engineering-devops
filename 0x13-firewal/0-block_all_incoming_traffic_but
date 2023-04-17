@@ -1,0 +1,6 @@
+sudo ufw allow default outcoming 
+sudo ufw default deny incoming
+sudo allow ssh
+sudo allow https
+sudo allow http
+

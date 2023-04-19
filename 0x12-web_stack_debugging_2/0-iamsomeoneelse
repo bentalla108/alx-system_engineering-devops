@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Commande WhoamI avec arg
+su "$1" -s /bin/bash -c 'whoami'

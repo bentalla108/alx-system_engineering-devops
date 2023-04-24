@@ -4,10 +4,11 @@ Script that use https://jsonplaceholder.typicode.com/ to return
 a todo list progress for a giveen employee
 """
 
+import json
 import re
 import requests as r
 import sys
-import json
+
 url = "https://jsonplaceholder.typicode.com"
 """URL for API"""
 
@@ -18,7 +19,7 @@ if __name__ == '__main__':
             id = int(sys.argv[1])
             usr_req = r.get('{}/users/{}'.format(url, id)).json()
             all_todos = r.get('{}/todos'.format(url)).json()
-            usr_name = usr_req.get('name')
+            usr_name = usr_req.get('username')
             todos = list(filter(lambda x: x.get('userId') == id, all_todos))
             with open("{}.json".format(id), 'w') as json_file:
                 usr_data = list(map(

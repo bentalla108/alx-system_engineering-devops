@@ -18,7 +18,7 @@ if __name__ == '__main__':
             id = int(sys.argv[1])
             usr_req = r.get('{}/users/{}'.format(url, id)).json()
             all_todos = r.get('{}/todos'.format(url)).json()
-            usr_name = usr_req.get('name')
+            usr_name = usr_req.get('username')
             todos = list(filter(lambda x: x.get('userId') == id, all_todos))
             with open('{}.csv'.format(id), 'w') as file:
                 for todo in todos:

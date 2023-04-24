@@ -4,10 +4,11 @@ Script that use https://jsonplaceholder.typicode.com/ to return
 a todo list progress for a giveen employee
 """
 
+import json
 import re
 import requests as requests
 import sys
-import json
+
 url = "https://jsonplaceholder.typicode.com"
 """URL for API"""
 

@@ -1,13 +1,25 @@
-#!/usr/bin/env bash
 server {
-    # Use IP of server as domain name
-    server_name 54.162.46.10;
+        # Use IP of server as domain name
 
-    # Customize HTTP response header
-    add_header  X-Served-By 90966-web-01;
+        # Customize HTTP response header
+        add_header  X-Served-By 90966-web-01;
 
-    # Serve /airbnb-onepage/ route from AirBnB_clone_v2
-    location = /airbnb-onepage/ {
-        proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
-    }
+        # Serve /airbnb-onepage/ route from AirBnB_clone_
+        location = /airbnb-onepage/ {
+                proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+        }
+}
+server {
+        listen 80;
+        server_name 41.216.202.192;
+
+        location /airbnb-dynamic/number_odd_or_even/ {
+                proxy_pass http://localhost:5001;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+        }
+        location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;
+        }
 }
